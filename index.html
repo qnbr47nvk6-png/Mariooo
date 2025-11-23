@@ -656,6 +656,35 @@
             border: 2px solid #FFD700;
             display: none;
         }
+        
+        /* Cải tiến cho máy tính bảng */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            #controls {
+                bottom: 80px; /* Nâng nút điều khiển lên cao hơn */
+            }
+            
+            .control-btn {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+                background: rgba(255, 255, 255, 0.6); /* Tăng độ trong suốt */
+            }
+            
+            #jump-btn {
+                background: rgba(255, 99, 71, 0.7); /* Tăng độ trong suốt cho nút nhảy */
+            }
+        }
+        
+        /* Cải tiến cho điện thoại */
+        @media (max-width: 767px) {
+            .control-btn {
+                background: rgba(255, 255, 255, 0.6); /* Tăng độ trong suốt */
+            }
+            
+            #jump-btn {
+                background: rgba(255, 99, 71, 0.7); /* Tăng độ trong suốt cho nút nhảy */
+            }
+        }
     </style>
 </head>
 <body>
@@ -706,7 +735,7 @@
                 <div id="start-screen">
                     <h1>Mario Hóa Học</h1>
                     <p>Chào mừng <span id="welcome-name">Người chơi</span>!</p>
-                    <p>Cốt truyện: Công chúa Peach đã bị Bowser bắt cóc và nhốt trong lâu đài hóa học bí ẩn!</p>
+                    <p>Công chúa Peach đã bị Bowser bắt cóc và nhốt trong lâu đài hóa học bí ẩn!</p>
                     <p>Mario cần vượt qua 5 phòng thí nghiệm đầy thử thách hóa học để giải cứu cô ấy.</p>
                     <button id="start-btn">Bắt Đầu Chơi</button>
                 </div>
@@ -1903,11 +1932,11 @@
             }
         ];
 
-        // Lớp nhân vật Mario
+        // Lớp nhân vật Mario - ĐÃ TĂNG KÍCH THƯỚC
         class Player {
             constructor() {
-                this.width = 40;
-                this.height = 60;
+                this.width = 50; // TĂNG KÍCH THƯỚC TỪ 40 LÊN 50
+                this.height = 75; // TĂNG KÍCH THƯỚC TỪ 60 LÊN 75
                 this.x = 100;
                 this.y = GAME_HEIGHT - this.height - 100;
                 this.velocityX = 0;
@@ -2105,51 +2134,51 @@
             drawLabSkin(coatColor, hatColor, pantsColor) {
                 // Mũ bảo hộ (thay mũ đỏ)
                 ctx.fillStyle = hatColor;
-                ctx.fillRect(5, 5, 30, 15);
-                ctx.fillRect(0, 15, 40, 10);
+                ctx.fillRect(5, 5, 40, 20); // TĂNG KÍCH THƯỚC
+                ctx.fillRect(0, 20, 50, 15); // TĂNG KÍCH THƯỚC
                 
                 // Kính bảo hộ
                 ctx.fillStyle = '#ADD8E6';
-                ctx.fillRect(8, 18, 24, 8);
+                ctx.fillRect(10, 23, 30, 10); // TĂNG KÍCH THƯỚC
                 ctx.strokeStyle = '#000000';
                 ctx.lineWidth = 1;
-                ctx.strokeRect(8, 18, 24, 8);
+                ctx.strokeRect(10, 23, 30, 10); // TĂNG KÍCH THƯỚC
                 
                 // Áo blouse
                 ctx.fillStyle = coatColor;
-                ctx.fillRect(5, 25, 30, 25);
+                ctx.fillRect(5, 35, 40, 30); // TĂNG KÍCH THƯỚC
                 
                 // Cổ áo
                 ctx.fillStyle = coatColor;
-                ctx.fillRect(15, 20, 10, 5);
+                ctx.fillRect(20, 25, 10, 10); // TĂNG KÍCH THƯỚC
                 
                 // Mặt
                 ctx.fillStyle = '#FFC0CB';
-                ctx.fillRect(10, 28, 20, 12);
+                ctx.fillRect(12, 35, 26, 15); // TĂNG KÍCH THƯỚC
                 
                 // Mắt
                 ctx.fillStyle = '#000000';
-                ctx.fillRect(14, 31, 2, 2);
-                ctx.fillRect(24, 31, 2, 2);
+                ctx.fillRect(17, 39, 3, 3); // TĂNG KÍCH THƯỚC
+                ctx.fillRect(30, 39, 3, 3); // TĂNG KÍCH THƯỚC
                 
                 // Quần
                 ctx.fillStyle = pantsColor;
-                ctx.fillRect(5, 50, 30, 10);
+                ctx.fillRect(5, 65, 40, 15); // TĂNG KÍCH THƯỚC
                 
                 // Ủng
                 ctx.fillStyle = '#8B4513';
-                ctx.fillRect(5, 60, 10, 10);
-                ctx.fillRect(25, 60, 10, 10);
+                ctx.fillRect(5, 80, 15, 15); // TĂNG KÍCH THƯỚC
+                ctx.fillRect(30, 80, 15, 15); // TĂNG KÍCH THƯỚC
                 
                 // Tay
                 ctx.fillStyle = '#FFC0CB';
-                ctx.fillRect(2, 35, 5, 15);
-                ctx.fillRect(33, 35, 5, 15);
+                ctx.fillRect(2, 45, 8, 20); // TĂNG KÍCH THƯỚC
+                ctx.fillRect(40, 45, 8, 20); // TĂNG KÍCH THƯỚC
                 
                 // Găng tay
                 ctx.fillStyle = '#FFFFFF';
-                ctx.fillRect(2, 50, 5, 5);
-                ctx.fillRect(33, 50, 5, 5);
+                ctx.fillRect(2, 65, 8, 8); // TĂNG KÍCH THƯỚC
+                ctx.fillRect(40, 65, 8, 8); // TĂNG KÍCH THƯỚC
             }
             
             reset() {
@@ -2837,7 +2866,8 @@
                     platforms.push(new Platform(920, GAME_HEIGHT - 240, 50, 20, '#8B4513'));
                     platforms.push(new Platform(1070, GAME_HEIGHT - 180, 60, 20, '#8B4513'));
                     platforms.push(new Platform(1220, GAME_HEIGHT - 220, 70, 20, '#8B4513'));
-                    obstacles.push(new Obstacle(120, GAME_HEIGHT - 60, 40, 30));
+                    
+                    // XÓA CHƯỚNG NGẠI VẬT Ở VỊ TRÍ BẮT ĐẦU (120, GAME_HEIGHT - 60)
                     obstacles.push(new Obstacle(280, GAME_HEIGHT - 60, 40, 30));
                     obstacles.push(new Obstacle(440, GAME_HEIGHT - 60, 40, 30));
                     obstacles.push(new Obstacle(600, GAME_HEIGHT - 60, 40, 30));
@@ -3172,12 +3202,26 @@
         window.addEventListener('resize', () => {
             initCanvasSize();
             checkOrientation();
+            
+            // Điều chỉnh vị trí nút điều khiển cho máy tính bảng
+            if (window.innerWidth >= 768 && window.innerWidth <= 1024) {
+                document.getElementById('controls').style.bottom = '80px';
+            } else {
+                document.getElementById('controls').style.bottom = '30px';
+            }
         });
 
         window.addEventListener('orientationchange', () => {
             setTimeout(() => {
                 initCanvasSize();
                 checkOrientation();
+                
+                // Điều chỉnh vị trí nút điều khiển cho máy tính bảng
+                if (window.innerWidth >= 768 && window.innerWidth <= 1024) {
+                    document.getElementById('controls').style.bottom = '80px';
+                } else {
+                    document.getElementById('controls').style.bottom = '30px';
+                }
             }, 100);
         });
 
@@ -3201,6 +3245,11 @@
         // Khởi tạo ban đầu
         initCanvasSize();
         checkOrientation();
+        
+        // Điều chỉnh vị trí nút điều khiển cho máy tính bảng
+        if (window.innerWidth >= 768 && window.innerWidth <= 1024) {
+            document.getElementById('controls').style.bottom = '80px';
+        }
     </script>
 </body>
 </html>
