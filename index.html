@@ -737,6 +737,8 @@
                     <p>Chào mừng <span id="welcome-name">Người chơi</span>!</p>
                     <p>Cốt truyện: Công chúa Peach đã bị Bowser bắt cóc và nhốt trong lâu đài hóa học bí ẩn!</p>
                     <p>Mario cần vượt qua 5 phòng thí nghiệm đầy thử thách hóa học để giải cứu cô ấy.</p>
+                    <p>Mỗi phòng thí nghiệm có 2 câu hỏi về tốc độ phản ứng hóa học.</p>
+                    <p>Trả lời đúng để mở khóa cửa và tiến tới phòng thí nghiệm tiếp theo!</p>
                     <button id="start-btn">Bắt Đầu Chơi</button>
                 </div>
                 
@@ -943,10 +945,10 @@
                     weatherIndicator.textContent = '🔬 Phòng thí nghiệm cơ bản';
                     createLabEnvironment();
                     break;
-                case 2: // Phòng thí nghiệm mưa acid
+                case 2: // Phòng thí nghiệm mưa axit
                     environment.weather = 'rainy';
                     environment.timeOfDay = 'afternoon';
-                    weatherIndicator.textContent = '🌧️ Phòng mưa acid';
+                    weatherIndicator.textContent = '🌧️ Phòng mưa axit';
                     createAcidRainEnvironment();
                     break;
                 case 3: // Phòng thí nghiệm hoàng hôn
@@ -1040,7 +1042,7 @@
             }
         }
 
-        // Tạo môi trường mưa acid
+        // Tạo môi trường mưa axit
         function createAcidRainEnvironment() {
             // Tạo mây đen
             for (let i = 0; i < 10; i++) {
@@ -1054,7 +1056,7 @@
                 });
             }
             
-            // Tạo hạt mưa acid (màu xanh)
+            // Tạo hạt mưa axit (màu xanh)
             for (let i = 0; i < 100; i++) {
                 environment.rainDrops.push({
                     x: Math.random() * GAME_WIDTH,
@@ -1098,7 +1100,7 @@
                 });
             }
             
-            // Tạo chim bay ít hơn trong mưa acid
+            // Tạo chim bay ít hơn trong mưa axit
             for (let i = 0; i < 3; i++) {
                 environment.birds.push({
                     x: Math.random() * GAME_WIDTH,
@@ -1598,7 +1600,7 @@
             // Vẽ mưa
             environment.rainDrops.forEach(drop => {
                 if (drop.acid) {
-                    ctx.strokeStyle = '#32CD32'; // Màu xanh cho mưa acid
+                    ctx.strokeStyle = '#32CD32'; // Màu xanh cho mưa axit
                 } else {
                     ctx.strokeStyle = environment.weather === 'rainy' ? '#3498DB' : '#BDC3C7';
                 }
@@ -2759,8 +2761,8 @@
                     transitionText.textContent = "Mario bắt đầu hành trình trong phòng thí nghiệm cơ bản. Ở đây, anh học về các phản ứng hóa học đơn giản và tốc độ phản ứng.";
                     break;
                 case 2:
-                    transitionTitle.textContent = "Màn 2: Phòng thí nghiệm mưa acid";
-                    transitionText.textContent = "Mario tiến vào phòng thí nghiệm mưa acid. Anh phải tìm hiểu về ảnh hưởng của môi trường đến tốc độ phản ứng.";
+                    transitionTitle.textContent = "Màn 2: Phòng thí nghiệm mưa axit";
+                    transitionText.textContent = "Mario tiến vào phòng thí nghiệm mưa axit. Anh phải tìm hiểu về ảnh hưởng của môi trường đến tốc độ phản ứng.";
                     break;
                 case 3:
                     transitionTitle.textContent = "Màn 3: Phòng thí nghiệm hoàng hôn";
